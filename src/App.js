@@ -4,7 +4,7 @@ import './App.css';
 import * as tf from '@tensorflow/tfjs';
 import * as faceLandmarksDetector from '@tensorflow-models/face-landmarks-detection';
 import Webcam from 'react-webcam';
-import { useEffect, useRef } from 'react';
+import { createContext, useEffect, useRef } from 'react';
 import {drawMesh} from './utils';
 
 function App() {
@@ -44,13 +44,16 @@ function App() {
 
 
       // const video = webcamRef.current.video;
-
       const face = await model.estimateFaces({
         input: video
       })
 
       // console.log(face);
-      drawMesh(face, canvasRef.current.getContext("2d"));
+      const ctx = canvasRef.current.getContext("2d");
+      // ctx.drawImage(video, 0,0);
+      drawMesh(face, ctx);
+      // document.querySelector('h1').innerHTML = face[0].scaledMesh[14][1] - face[0].scaledMesh[13][1] > 10? "mouth is open":"mouth is close";
+      document.querySelector('h1').innerHTML = face[0].scaledMesh[374][1] - face[0].scaledMesh[386][1] > 5? "eye is open": "eye is closed";
 
     } else {
       console.log('feed error');
@@ -62,9 +65,9 @@ function App() {
 
   return (
     <div className="App">
-        {/* <video src="" ref={videoRef}  id="video" autoPlay={true}></video> */}
         <canvas height="400px" width="600px" ref={canvasRef} id="canvas" ></canvas>
-        <Webcam ref={webcamRef} id="webcam" />
+        <Webcam ref={webcamRef} id="webcam"/>
+        <h1>.</h1>
     </div>
   );
 }

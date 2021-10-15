@@ -13,9 +13,11 @@ const drawTriangle = (vertices, ctx) => { // vertices is an array of 2d array of
     ctx.stroke(region);
 }
 
+// Drawing Mesh
 export const drawMesh = (predictions, ctx) => {
-    const keypoints = predictions[0].scaledMesh;
-    console.log(keypoints);
+  if (predictions.length > 0) {
+    predictions.forEach((prediction) => {
+      const keypoints = prediction.scaledMesh;
 
       //  Draw Triangles
       for (let i = 0; i < TRIANGULATION.length / 3; i++) {
@@ -39,5 +41,7 @@ export const drawMesh = (predictions, ctx) => {
         ctx.fillStyle = "aqua";
         ctx.fill();
       }
+    });
+  }
 }
 

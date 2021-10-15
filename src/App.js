@@ -65,8 +65,10 @@ function App() {
 
   return (
     <div className="App">
-        <canvas height="400px" width="600px" ref={canvasRef} id="canvas" ></canvas>
-        <Webcam ref={webcamRef} id="webcam"/>
+        <div>
+          <canvas height="400px" width="600px" ref={canvasRef} id="canvas" ></canvas>
+          <Webcam ref={webcamRef} id="webcam"/>
+        </div>
         <h1>.</h1>
     </div>
   );

@@ -7,9 +7,18 @@
 }
 
 #webcam,
-#video {
+video {
   height: 400px;
   width: 600px;
+}
+
+canvas {
+  max-width: 600px;
+  height: 400px;
+}
+
+.letters {
+  display: flex;
 }
 
 #canvas {

@@ -25,3 +25,29 @@ canvas {
   border: solid black 1px;
 }
 
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.keyboard-row {
+  display: flex;
+  margin: 0;
+  /* border: solid red 1px; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.keyboard-row * {
+  margin: 0 20px;
+}
+
+.pad {
+  border: solid black 1px;
+  height: 2vw;
+}

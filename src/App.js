@@ -89,7 +89,7 @@ function App() {
               
               setTimeout(() => {
                 typing = true;
-              }, 500);
+              }, 1000);
             } 
             
             if(rowTraversing && typing) {
@@ -100,7 +100,7 @@ function App() {
 
               setInterval(() => {
                 typing = true;
-              }, 500);
+              }, 1000);
             }
             
           }else {
